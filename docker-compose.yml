@@ -1,0 +1,12 @@
+services:
+  mongo:
+    image: mongo
+    container_name: api_combat_mongo
+    ports:
+      - "27022:27017"
+
+  api_combat:
+    build: ./
+    container_name: api_combat
+    ports:
+      - "8086:8080"

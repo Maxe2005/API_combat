@@ -1,0 +1,18 @@
+spring.application.name: api_combat
+
+spring:
+  data:
+    mongodb:
+      uuid-representation: standard
+      database: api_combatdb
+      port: 27017
+
+# Actuator configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always

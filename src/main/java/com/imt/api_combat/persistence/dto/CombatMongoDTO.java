@@ -1,6 +1,7 @@
 package com.imt.api_combat.persistence.dto;
 
 
+import com.imt.api_combat.utils.Turn;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,6 +17,8 @@ public class CombatMongoDTO {
     @MongoId
     private final UUID id;
     private final List<UUID> monsters;
+    private final List<String> players;
+    private List<Turn> turns;
     private boolean isFinished;
     private String winner;
 }

@@ -2,6 +2,7 @@ package com.imt.api_combat.service;
 
 import com.imt.api_combat.persistence.dao.CombatMongoDAO;
 import com.imt.api_combat.persistence.dto.CombatMongoDTO;
+import com.imt.api_combat.utils.Turn;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +27,27 @@ public class CombatService {
             return null;
         }
         return id;
+    }
+
+    public boolean addCombatTurn(String id) {
+        CombatMongoDTO combat = getCombat(id);
+        if (combat == null) return false;
+
+        List<Turn> turns = combat.getTurns();
+        Turn turn = new Turn(combat.getTurns().size() + 1, combat.getMonsters());
+        // To implement;
+        // Turn statistics
+        // Monsters HP
+        // Skills Used
+
+        turns.add(turn);
+        combat.setTurns(turns);
+
+        try {
+            combatMongoDAO.save(combat);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

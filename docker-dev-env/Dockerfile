@@ -1,7 +1,7 @@
 FROM maven:3.9.6-amazoncorretto-21 AS build
 RUN mkdir -p /api_combat
-COPY src /api_combat/src
-COPY pom.xml /api_combat
+COPY ../src /api_combat/src
+COPY ../pom.xml /api_combat
 WORKDIR /api_combat
 RUN mvn clean package
 

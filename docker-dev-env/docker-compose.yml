@@ -6,7 +6,7 @@ services:
       - "27022:27017"
 
   api_combat:
-    build: ./
+    build: ..
     container_name: api_combat
     ports:
       - "8086:8080"

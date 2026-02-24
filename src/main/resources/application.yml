@@ -1,5 +1,10 @@
 spring.application.name: api_combat
 
+app:
+  vars:
+    baseurl: ${BASEURL}
+    monsters_port: ${MONSTERS_PORT}
+
 spring:
   data:
     mongodb:
